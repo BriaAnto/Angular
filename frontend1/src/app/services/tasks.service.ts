@@ -17,4 +17,4 @@ export class TaskService {
     return this.http.get<any>(this.URL + '/private-tasks');
   }
 
-}
+} 

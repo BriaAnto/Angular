@@ -10,11 +10,11 @@ export class AuthService {
   private URL = 'http://localhost:4000/api';
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUpUser(user) {
+  signUpUser(user: any) {
     return this.http.post<any>(this.URL + '/signup', user);
   }
 
-  signInUser(user) {
+  signInUser(user: any) {
     return this.http.post<any>(this.URL + '/signin', user);
   }
 
@@ -30,5 +30,5 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
-
-}
+ 
+} 

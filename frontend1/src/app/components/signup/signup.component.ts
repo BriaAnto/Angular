@@ -9,7 +9,11 @@ import { Router } from '@angular/router'
 })
 export class SignupComponent implements OnInit {
 
-  user = {}
+  user = {
+    usuario: "",
+    password: ""
+  }
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -19,8 +23,7 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    this.authService.signUpUser(this.user)
-      .subscribe(
+    this.authService.signUpUser(this.user).subscribe(
         res => {
           console.log(res);
           localStorage.setItem('token', res.token);

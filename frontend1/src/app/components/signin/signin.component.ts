@@ -8,7 +8,10 @@ import { Router } from '@angular/router'
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  user = {};
+  user = {
+    usuario: "",
+    password: ""
+  };
 
   constructor(
     private authService: AuthService,
@@ -19,8 +22,7 @@ export class SigninComponent implements OnInit {
   }
 
   signIn() {
-    this.authService.signInUser(this.user)
-      .subscribe(
+    this.authService.signInUser(this.user).subscribe(
         res => {
           console.log(res);
           localStorage.setItem('token', res.token);
@@ -29,5 +31,5 @@ export class SigninComponent implements OnInit {
         err => console.log(err)
       )
   }
-
+ 
 }
